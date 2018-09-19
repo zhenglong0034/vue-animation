@@ -4,7 +4,7 @@
  			<div ref="doubleBookBlock" class="bb-bookblock" v-bookblock="options">
         <div class="bb-item">
             <div class="page">
-            	<img src="./images/demo1/1.jpg" alt="image01"/>
+            	<img :src="dd" alt="image01"/>
               <swiper-slide>{{ data[data.length - 1].text }}</swiper-slide>
             </div>
         </div>
@@ -36,7 +36,9 @@ import mySwiper from './my-swiper.vue'
 
 export default {
   data: function () {
+    const imgsrc = './images/demo1/1.jpg'
     return {
+      dd: require('./images/demo1/1.jpg'),
       options: {
         speed: 1000,
         shadowSides : 0.8,

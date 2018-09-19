@@ -2,9 +2,10 @@
     <div class="my-swiper">
       <swiper :options="swiperOption" ref="mySwiper" id="mySwiper">
         <swiper-slide v-for="(item, index) in list" :key="index">
-          <div class="self-audio-div">
+          <div class="self-audio-div" v-if="item.source">
             播放
-            <audio class="self-audio" :src="item.source">
+            <audio class="self-audio">
+               <source :src="item.source" type="audio/mpeg">
             </audio>
           </div>
           <span>{{item.text}}</span>

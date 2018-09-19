@@ -7,8 +7,10 @@ import bookBlock from 'vue-bookblock'
 import deviceType from './plugins/device-Type'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+import 'lss.common.css/lss.common.min.css'
 import 'vue-bookblock/styles/bookblock.css'
 import 'swiper/dist/css/swiper.css'
+
 Vue.use(bookBlock)
 Vue.use(deviceType)
 Vue.use(VueAwesomeSwiper)
