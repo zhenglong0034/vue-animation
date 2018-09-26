@@ -1,18 +1,19 @@
 <template>
     <div class="my-swiper">
-      <swiper :options="swiperOption" ref="mySwiper" id="mySwiper">
-        <swiper-slide v-for="(item, index) in list" :key="index">
-          <div class="self-audio-div" v-if="item.source">
-            播放
-            <audio class="self-audio">
-               <source :src="item.source" type="audio/mpeg">
-            </audio>
-          </div>
-          <span>{{item.text}}</span>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <!-- ... the buttons ... -->
+        <swiper :options="swiperOption" ref="mySwiper" id="mySwiper">
+            <swiper-slide v-for="(item, index) in list" :key="index">
+              <div class="self-audio-div" v-if="item.source" :style="{color: playText === '播放' ? 'green' : 'red'}">
+                {{playText}}
+                <audio class="self-audio">
+                  <source :src="item.source" type="audio/mpeg">
+                </audio>
+              </div>
+              <span>{{item.text}}</span>
+            </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
 
-      </swiper>
+        </swiper>
     </div>
 </template>
 <script>
@@ -23,6 +24,7 @@ export default {
   },
   data () {
     return {
+      playText: '播放',
       list: this.data,
       slideEndTouchDis: 0,
       slideBeginTouchDis: 0,
@@ -52,7 +54,13 @@ export default {
       e.stopPropagation()
       console.log(e)
       if (e.srcElement.className === 'self-audio-div') {
-        e.srcElement.children[0].play()
+        if (e.srcElement.children[0].paused) {
+          e.srcElement.children[0].play()
+          this.playText = '暂停'
+        } else {
+          this.playText = '播放'
+          e.srcElement.children[0].pause()
+        }
       }
     })
   },
@@ -124,13 +132,13 @@ export default {
     .self-audio-div {
       width: 50px;
       height: 20px;
+      border: 1px solid #007aff;
       // float left
       top 5px
       left 0
       position absolute
       display inline-block
       .self-audio {
-
       }
     }
     #mySwiper {

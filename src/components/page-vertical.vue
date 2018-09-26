@@ -9,19 +9,19 @@
             </div>
         </div>
         <div class="bb-item">
-            	<img src="./images/demo1/2.jpg" alt="image01"/>
+            	<img src="../../static/images/demo1/2.jpg" alt="image01"/>
               <swiper-slide>{{ data[data.length - 1].text }}</swiper-slide>
         </div>
         <div class="bb-item">
-            	<img src="./images/demo1/3.jpg" alt="image01"/>
+            	<img src="../../static/images/demo1/3.jpg" alt="image01"/>
               <swiper-slide>{{ data[data.length - 1].text }}</swiper-slide>
           </div>
         <div class="bb-item">
-            	<img src="./images/demo1/4.jpg" alt="image01"/>
+            	<img src="../../static/images/demo1/4.jpg" alt="image01"/>
               <swiper-slide>{{ data[data.length - 1].text }}</swiper-slide>
           </div>
         <div class="bb-item">
-            	<img src="./images/demo1/5.jpg" alt="image01"/>
+            	<img src="../../static/images/demo1/5.jpg" alt="image01"/>
               <swiper-slide>{{ data[data.length - 1].text }}</swiper-slide>
         </div>
         <my-swiper :data="data" :bookblock="newbookblock"></my-swiper>
@@ -36,9 +36,9 @@ import mySwiper from './my-swiper.vue'
 
 export default {
   data: function () {
-    const imgsrc = './images/demo1/1.jpg'
+    const imgsrc = '../../static/images/demo1/1.jpg'
     return {
-      dd: require('./images/demo1/1.jpg'),
+      dd: require('../../static/images/demo1/1.jpg'),
       options: {
         speed: 1000,
         shadowSides : 0.8,

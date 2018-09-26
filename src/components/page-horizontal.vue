@@ -2,7 +2,7 @@
   <div class="hello">
 
  			<div ref="bookBlock" class="bb-bookblock" v-bookblock="options">
-        <div class="bb-item">
+        <div class="bb-item" v-for="i in 100" :key="i">
             <div class="page">
             	<img src="./images/demo1/1.jpg" alt="image01"/>
             </div>
